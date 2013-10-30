@@ -1,0 +1,53 @@
+Elm.Inputs = Elm.Inputs || {};
+Elm.Inputs.make = function (elm)
+                  {
+                    elm.Inputs = elm.Inputs || {};
+                    if (elm.Inputs.values)
+                    return elm.Inputs.values;
+                    var N = Elm.Native,
+                        _N = N.Utils.make(elm),
+                        _L = N.List.make(elm),
+                        _E = N.Error.make(elm),
+                        _J = N.JavaScript.make(elm),
+                        $moduleName = "Inputs";
+                    var Text = Elm.Text.make(elm);
+                    var Text = Elm.Text.make(elm);
+                    var Basics = Elm.Basics.make(elm);
+                    var Signal = Elm.Signal.make(elm);
+                    var List = Elm.List.make(elm);
+                    var Maybe = Elm.Maybe.make(elm);
+                    var Time = Elm.Time.make(elm);
+                    var Prelude = Elm.Prelude.make(elm);
+                    var Graphics = Graphics || {};
+                    Graphics.Element = Elm.Graphics.Element.make(elm);
+                    var Color = Elm.Color.make(elm);
+                    var Graphics = Graphics || {};
+                    Graphics.Collage = Elm.Graphics.Collage.make(elm);
+                    var Graphics = Graphics || {};
+                    Graphics.Input = Elm.Graphics.Input.make(elm);
+                    var Keyboard = Elm.Keyboard.make(elm);
+                    var Model = Elm.Model.make(elm);
+                    var _op = {};
+                    var taskField = Graphics.Input.fields(Graphics.Input.emptyFieldState);
+                    var taskDelete = Graphics.Input.customButtons(0);
+                    var entered = A3(Signal.keepIf,Basics.id,true,Keyboard.enter);
+                    var fieldState = A2(Signal.merge,
+                                        taskField.events,
+                                        A2(Signal.sampleOn,
+                                           entered,
+                                           Signal.constant(Graphics.Input.emptyFieldState)));
+                    var actions = A2(Signal.merge,
+                                     A2(Signal._op["<~"],
+                                        Model.Add,
+                                        A2(Signal.sampleOn,
+                                           entered,
+                                           A2(Signal._op["<~"],
+                                              function (_)
+                                              {
+                                                return _.string;
+                                              },
+                                              taskField.events))),
+                                     A2(Signal._op["<~"],Model.Remove,taskDelete.events));
+                    elm.Inputs.values = {_op: _op, taskField: taskField, taskDelete: taskDelete, actions: actions, fieldState: fieldState};
+                    return elm.Inputs.values;
+                  };

@@ -1,0 +1,48 @@
+Elm.Todo = Elm.Todo || {};
+Elm.Todo.make = function (elm)
+                {
+                  elm.Todo = elm.Todo || {};
+                  if (elm.Todo.values)
+                  return elm.Todo.values;
+                  var N = Elm.Native,
+                      _N = N.Utils.make(elm),
+                      _L = N.List.make(elm),
+                      _E = N.Error.make(elm),
+                      _J = N.JavaScript.make(elm),
+                      $moduleName = "Todo";
+                  var Text = Elm.Text.make(elm);
+                  var Text = Elm.Text.make(elm);
+                  var Basics = Elm.Basics.make(elm);
+                  var Signal = Elm.Signal.make(elm);
+                  var List = Elm.List.make(elm);
+                  var Maybe = Elm.Maybe.make(elm);
+                  var Time = Elm.Time.make(elm);
+                  var Prelude = Elm.Prelude.make(elm);
+                  var Graphics = Graphics || {};
+                  Graphics.Element = Elm.Graphics.Element.make(elm);
+                  var Color = Elm.Color.make(elm);
+                  var Graphics = Graphics || {};
+                  Graphics.Collage = Elm.Graphics.Collage.make(elm);
+                  var Window = Elm.Window.make(elm);
+                  var Model = Elm.Model.make(elm);
+                  var Update = Elm.Update.make(elm);
+                  var Display = Elm.Display.make(elm);
+                  var Inputs = Elm.Inputs.make(elm);
+                  var _op = {};
+                  var currentState = A3(Signal.foldp,
+                                        Update.update,
+                                        Model.initialState,
+                                        Inputs.actions);
+                  var main = A2(Signal._op["~"],
+                                A2(Signal._op["~"],
+                                   A2(Signal._op["<~"],Display.display,Window.dimensions),
+                                   Inputs.fieldState),
+                                A2(Signal.lift,
+                                   function (_)
+                                   {
+                                     return _.tasks;
+                                   },
+                                   currentState));
+                  elm.Todo.values = {_op: _op, currentState: currentState, main: main};
+                  return elm.Todo.values;
+                };

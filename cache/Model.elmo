@@ -1,0 +1,46 @@
+Elm.Model = Elm.Model || {};
+Elm.Model.make = function (elm)
+                 {
+                   elm.Model = elm.Model || {};
+                   if (elm.Model.values)
+                   return elm.Model.values;
+                   var N = Elm.Native,
+                       _N = N.Utils.make(elm),
+                       _L = N.List.make(elm),
+                       _E = N.Error.make(elm),
+                       _J = N.JavaScript.make(elm),
+                       $moduleName = "Model";
+                   var Text = Elm.Text.make(elm);
+                   var Text = Elm.Text.make(elm);
+                   var Basics = Elm.Basics.make(elm);
+                   var Signal = Elm.Signal.make(elm);
+                   var List = Elm.List.make(elm);
+                   var Maybe = Elm.Maybe.make(elm);
+                   var Time = Elm.Time.make(elm);
+                   var Prelude = Elm.Prelude.make(elm);
+                   var Graphics = Graphics || {};
+                   Graphics.Element = Elm.Graphics.Element.make(elm);
+                   var Color = Elm.Color.make(elm);
+                   var Graphics = Graphics || {};
+                   Graphics.Collage = Elm.Graphics.Collage.make(elm);
+                   var _op = {};
+                   var initialState = {_: {}, tasks: _J.toList([]), uid: 0};
+                   var TodoState = F2(function (a,b)
+                                      {
+                                        return {_: {}, tasks: a, uid: b};
+                                      });
+                   var Task = F3(function (a,b,c)
+                                 {
+                                   return {_: {}, description: b, done: a, id: c};
+                                 });
+                   var Remove = function (a)
+                                {
+                                  return {ctor: "Remove", _0: a};
+                                };
+                   var Add = function (a)
+                             {
+                               return {ctor: "Add", _0: a};
+                             };
+                   elm.Model.values = {_op: _op, initialState: initialState, Add: Add, Remove: Remove, Task: Task, TodoState: TodoState};
+                   return elm.Model.values;
+                 };

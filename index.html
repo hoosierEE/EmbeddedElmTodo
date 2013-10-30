@@ -1,0 +1,44 @@
+<html>
+
+<head>
+  <title>Embedding Elm</title>
+  <script src="resources/elm-runtime.js"></script>
+  <script src="build/Todo.js"></script>
+  <style>
+  body {
+    background-color: #d3d7cf;
+    font-family: "Lucida Grande","Trebuchet MS","Bitstream Vera Sans",Verdana,Helvetica,sans-serif;
+    font-size: 14px;
+  }
+  #elm-stamps {
+    width:  500px;
+    height: 500px;
+    background-color: white;
+    border: 1px solid #babdb6;
+  }
+  #column {
+     width: 500px;
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+  }
+  </style>
+</head>
+
+<body>
+<div id="column">
+  <h1>Todos</h1>
+
+  <p>This demo shows embedding Todo in HTML</p>
+
+  <div id="elm-stamps"></div>
+</div>
+</body>
+
+<script type="text/javascript">
+  // Show the stamp module in the "elm-stamps" div.
+  var stampDiv = document.getElementById('elm-stamps');
+  var stamps = Elm.embed(Elm.Todo, stampDiv);
+</script>
+
+</html>

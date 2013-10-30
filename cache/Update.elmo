@@ -1,0 +1,59 @@
+Elm.Update = Elm.Update || {};
+Elm.Update.make = function (elm)
+                  {
+                    elm.Update = elm.Update || {};
+                    if (elm.Update.values)
+                    return elm.Update.values;
+                    var N = Elm.Native,
+                        _N = N.Utils.make(elm),
+                        _L = N.List.make(elm),
+                        _E = N.Error.make(elm),
+                        _J = N.JavaScript.make(elm),
+                        $moduleName = "Update";
+                    var Text = Elm.Text.make(elm);
+                    var Text = Elm.Text.make(elm);
+                    var Basics = Elm.Basics.make(elm);
+                    var Signal = Elm.Signal.make(elm);
+                    var List = Elm.List.make(elm);
+                    var Maybe = Elm.Maybe.make(elm);
+                    var Time = Elm.Time.make(elm);
+                    var Prelude = Elm.Prelude.make(elm);
+                    var Graphics = Graphics || {};
+                    Graphics.Element = Elm.Graphics.Element.make(elm);
+                    var Color = Elm.Color.make(elm);
+                    var Graphics = Graphics || {};
+                    Graphics.Collage = Elm.Graphics.Collage.make(elm);
+                    var Model = Elm.Model.make(elm);
+                    var _op = {};
+                    var update = F2(function (action,state)
+                                    {
+                                      return function ()
+                                             {
+                                               switch (action.ctor)
+                                               {case
+                                                "Add" :
+                                                  switch (action._0)
+                                                  {case
+                                                   "" :
+                                                     return state;}
+                                                  return {_: {}, tasks: {ctor: "::", _0: A3(Model.Task,
+                                                                                            false,
+                                                                                            action._0,
+                                                                                            state.uid), _1: state.tasks}, uid: state.uid + 1};
+                                                case
+                                                "Remove" :
+                                                  return _N.replace([["tasks",
+                                                                      A2(List.filter,
+                                                                         function (task)
+                                                                         {
+                                                                           return ! _N.eq(task.id,
+                                                                                          action._0);
+                                                                         },
+                                                                         state.tasks)]],
+                                                                    state);}
+                                               _E.Case($moduleName,"between lines 8 and 21");
+                                             }();
+                                    });
+                    elm.Update.values = {_op: _op, update: update};
+                    return elm.Update.values;
+                  };
