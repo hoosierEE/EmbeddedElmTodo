@@ -9,3 +9,7 @@ To embed an Elm project inside a `div` in an HTML file, you need to do a few thi
 Once you have your Elm file written, you should compile it using the --only-js and --make flags like so:
 
 `elm -mo ElmFileName.elm`
+
+Other resources:
+[TodoFRP](https://github.com/evancz/TodoFRP)
+[Elm Official Website](http://elm-lang.org)
