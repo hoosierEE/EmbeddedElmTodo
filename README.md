@@ -1,6 +1,6 @@
 # Embedding Elm in HTML #
 
-To embed an Elm project inside a <div> in an HTML file, you need to do a few things:
+To embed an Elm project inside a `div` in an HTML file, you need to do a few things:
 
 * name the `div` you want to use in your HTML file
 * reference that `div` in JavaScript using `getElementById('your-div-name')`
